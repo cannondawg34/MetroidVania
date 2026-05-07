@@ -21,3 +21,7 @@ Recordings/
 
 .DS_Store
 Thumbs.db
+
+# MCP Unity - local only
+ProjectSettings/McpUnitySettings.asset
+.vs/
