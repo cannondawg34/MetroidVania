@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,8 +22,9 @@ public class Player_Movement : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.J)) //&& notGrounded
+        if (Input.GetKeyDown(KeyCode.J) && grounded) //&& notGrounded
         {
+            //Debug.Log("Player Jump key activated");
             Jump();
         }
     }
@@ -45,5 +47,11 @@ public class Player_Movement : MonoBehaviour
             grounded = true;
 
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+            if (collision.gameObject.tag == "Ground")
+                grounded = false;
     }
 }
